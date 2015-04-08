@@ -1,0 +1,20 @@
+
+#contenedor_centrado {
+position:absolute;
+top: 35%;
+left: 35%;
+height:400px;
+width:600px;
+}
+
+h1{
+	position: center;
+}
+
+html {
+        background: url("../imagenes/img.jpg") no-repeat center center fixed;
+        background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        -o-background-size: cover;
+}

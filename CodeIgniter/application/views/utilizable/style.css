@@ -1,0 +1,19 @@
+h1{
+	background: black;
+}
+
+#contenedor_centrado {
+position:absolute;
+top: 0%;
+left: 25%;
+height:400px;
+width:600px;
+}
+
+html {
+        background: url(/usuario/abstract-21.jpg) no-repeat center center fixed;
+        background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        -o-background-size: cover;
+}
