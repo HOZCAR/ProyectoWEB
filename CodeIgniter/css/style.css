@@ -1,5 +1,5 @@
 
-#contenedor_centrado {
+#contenedor_login {
 position:absolute;
 top: 35%;
 left: 35%;
@@ -7,8 +7,61 @@ height:400px;
 width:600px;
 }
 
+#contenedor_registro{
+	position:absolute;
+	top: 10%;
+	left: 35%;
+	height:400px;
+	width:600px;
+}
+
 h1{
-	position: center;
+	position: relative;
+	left: 15%;
+}
+
+#btnlogin{
+	position: relative;
+	left: 13%;
+	top: 15%;
+}
+
+#usuario{
+	position: relative;
+	left: 6%;
+	margin-bottom: 5%;	
+}
+#contrasena{
+	position: relative;
+	left: 2%;
+	margin-bottom: 5%;
+}
+
+#contrasenareg{
+	position: relative;
+	left: 1%;
+	margin-bottom: 5%;
+}
+
+#emailreg{
+	position: relative;
+	left: 6%;
+	margin-bottom: 5%;
+}
+
+.inputreg{
+	position: relative;
+	left: 5%;
+	margin-bottom: 5%;
+}
+
+#log{
+	margin-right: 5%;
+}
+
+#registrar{
+	position: relative;
+	left: 23%;
 }
 
 html {
