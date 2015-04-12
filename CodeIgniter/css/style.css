@@ -1,10 +1,9 @@
 
 #contenedor_login {
 position:absolute;
-top: 35%;
+top: 25%;
 left: 35%;
 height:400px;
-width:600px;
 }
 
 #contenedor_registro{
@@ -12,12 +11,17 @@ width:600px;
 	top: 10%;
 	left: 35%;
 	height:400px;
-	width:600px;
 }
 
-h1{
+#seccion_izquierda{
+	position: absolute;
+	border-right: 4px solid black;
+}
+
+#centrar{
 	position: relative;
 	left: 15%;
+	color: white;
 }
 
 #btnlogin{
@@ -28,25 +32,37 @@ h1{
 
 #usuario{
 	position: relative;
-	left: 6%;
+	left: 12%;
 	margin-bottom: 5%;	
 }
 #contrasena{
 	position: relative;
 	left: 2%;
+	margin-bottom: 7%;
+}
+
+#nombrereg{
+	position: relative;
+	left: 12%;
 	margin-bottom: 5%;
+}
+
+#usuarioreg{
+	position: relative;
+	left: 12%;
+	margin-bottom: 5%;	
 }
 
 #contrasenareg{
 	position: relative;
-	left: 1%;
+	left: 2%;
 	margin-bottom: 5%;
 }
 
 #emailreg{
 	position: relative;
-	left: 6%;
-	margin-bottom: 5%;
+	left: 14%;
+	margin-bottom: 7%;
 }
 
 .inputreg{
@@ -64,10 +80,50 @@ h1{
 	left: 23%;
 }
 
+#costado{
+	color: white;
+}
+
+#header{
+	position: relative;
+	background: url("../imagenes/img.jpg") no-repeat center center fixed;
+	border-bottom: 4px solid black;
+}
+
+label{
+	background-color: #337ab7;
+	color: white;
+}
+
 html {
         background: url("../imagenes/img.jpg") no-repeat center center fixed;
         background-size: cover;
         -moz-background-size: cover;
         -webkit-background-size: cover;
         -o-background-size: cover;
+}
+
+nav ul{
+	margin: 0 0 3em 0; /* en orden del reloj*/
+	padding: 0;
+	list-style: none;
+	position:relative;
+	height:500px;
+	float: bottom;
+}
+
+nav ul li{
+	float: bottom;
+	position: relative;
+	top: 5%;
+}
+
+nav ul li a{
+	font-size: 22px;
+	text-decoration:none;
+	padding: 8px 15px; /*espacio entre los items de la lista*/
+	margin-bottom: 10px;
+	border: 2px solid #2e6da4; /* divisor entre items*/
+	color: white;
+	background-color: #337ab7;
 }

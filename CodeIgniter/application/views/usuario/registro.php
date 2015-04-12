@@ -2,7 +2,7 @@
  </head>
  <body>
 	 <div id="contenedor_registro">
- 	  	<h1>Registrarse</h1>
+ 	  	<h1 id="centrar">Registrarse</h1>
  	  	<form action="usuario/autentificar" method="post" accept-charset="utf-8">
             <label for="nombre">Nombre:</label>
             <input type="text" size="20" id="nombrereg" name="nombre" class = "inputreg" autofocus/>

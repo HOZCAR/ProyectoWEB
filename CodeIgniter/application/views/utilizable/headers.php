@@ -3,6 +3,8 @@
 <head>
 	<meta charset='utf-8'>
 
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/normalize.css'); ?>">
+
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
 <!-- Optional theme -->
