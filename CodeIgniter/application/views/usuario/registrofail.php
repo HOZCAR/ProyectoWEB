@@ -18,6 +18,7 @@
             <br/>
         	<input type="submit" value="Registrarse" id = "registrar" class="btn btn-primary"/>
    		</form>
+        <p id="loginfail">Usuario o correo duplicados</p>
  	 </div>
  	</body>
 </html>

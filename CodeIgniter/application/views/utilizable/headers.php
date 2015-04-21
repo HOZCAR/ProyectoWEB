@@ -15,3 +15,7 @@
 
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style.css'); ?>">
 
+	<script type="text/javascript" src="js/cambiarPestanna.js"></script>
+
+    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+
