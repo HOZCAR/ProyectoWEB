@@ -1,0 +1,175 @@
+
+#contenedor_login {
+position:absolute;
+top: 25%;
+left: 35%;
+height:400px;
+}
+
+#contenedor_registro{
+	position:absolute;
+	top: 10%;
+	left: 35%;
+	height:400px;
+}
+
+#seccion_izquierda{
+	position: absolute;
+	border-right: 4px solid black;
+}
+
+#centrar{
+	position: relative;
+	left: 15%;
+	color: white;
+}
+
+#btnlogin{
+	position: relative;
+	left: 13%;
+	top: 15%;
+	margin-bottom: 2%;
+}
+
+#btnregistro{
+	position: relative;
+	left: 13%;
+}
+
+#btnsalir{
+	position: relative;
+	left: 94%;
+}
+
+#usuario{
+	position: relative;
+	left: 12%;
+	margin-bottom: 5%;	
+}
+#contrasena{
+	position: relative;
+	left: 2%;
+	margin-bottom: 7%;
+}
+
+#loginfail{
+	position: relative;
+	top: 2%;
+	color: white;
+}
+
+#nombrereg{
+	position: relative;
+	left: 12%;
+	margin-bottom: 5%;
+}
+
+#usuarioreg{
+	position: relative;
+	left: 12%;
+	margin-bottom: 5%;	
+}
+
+#contrasenareg{
+	position: relative;
+	left: 2%;
+	margin-bottom: 5%;
+}
+
+#emailreg{
+	position: relative;
+	left: 14%;
+	margin-bottom: 7%;
+}
+
+.inputreg{
+	position: relative;
+	left: 5%;
+	margin-bottom: 5%;
+}
+
+#log{
+	margin-right: 5%;
+}
+
+#registrar{
+	position: relative;
+	left: 23%;
+}
+
+#costado{
+	color: white;
+}
+
+#header{
+	position: relative;
+	background: url("../imagenes/img.jpg") no-repeat center center fixed;
+	border-bottom: 4px solid black;
+}
+
+label{
+	background-color: #337ab7;
+	color: white;
+}
+
+html {
+        background: url("../imagenes/img.jpg") no-repeat center center fixed;
+        background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        -o-background-size: cover;
+}
+
+.contenedor{
+	background: url("../imagenes/img.jpg") no-repeat center center fixed;
+    margin: auto;
+    color: bisque;
+    padding: 20px 15px 50px 50px;
+    border-radius: 10px;
+    box-shadow: 0 10px 10px 0px rgba(0, 0, 0, 0.8);
+}
+ 
+.contenedor .titulo{
+	background: url("../imagenes/img.jpg") no-repeat center center fixed;
+    font-size: 3.5ex;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+ 
+#pestanas {
+    float: left;
+    font-size: 3ex;
+    font-weight: bold;
+}
+ 
+#pestanas ul{
+    margin-left: -40px;    
+}
+ 
+#pestanas li{
+    list-style-type: none;
+    float: left;
+    text-align: center;
+    margin: 0px 2px -2px -0px;
+    background: darkgrey;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border: 2px solid bisque;
+    border-bottom: dimgray;
+    padding: 0px 20px 0px 20px;
+}
+ 
+#pestanas a:link{
+    text-decoration: none;
+    color: bisque;
+}
+ 
+#contenidopestanas{
+    clear: both;  
+    padding: 20px 0px 20px 20px;
+    border-radius: 5px;
+    border-top-left-radius: 0px;
+    border: 2px solid bisque;
+    
+}
