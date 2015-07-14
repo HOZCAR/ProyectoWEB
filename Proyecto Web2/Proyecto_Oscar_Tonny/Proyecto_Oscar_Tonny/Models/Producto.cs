@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
 
 namespace Proyecto_Oscar_Tonny
 {
@@ -9,7 +12,7 @@ namespace Proyecto_Oscar_Tonny
     {
         public int id { get; set; }
 
-        public ApplicationUserManager usuario { get; set; }
+        //public ApplicationUser usuario { get; set; }
 
         public String nombre { get; set; }
 
