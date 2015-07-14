@@ -19,7 +19,7 @@ namespace Proyecto_Oscar_Tonny.Models
         {
         }
 
-        public System.Data.Entity.DbSet<Proyecto_Oscar_Tonny.Usuario> Usuarios { get; set; }
+ 
 
         public System.Data.Entity.DbSet<Proyecto_Oscar_Tonny.Producto> Productoes { get; set; }
 

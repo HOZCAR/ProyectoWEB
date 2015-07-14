@@ -11,7 +11,7 @@ namespace Proyecto_Oscar_Tonny
 
         public Producto producto_ofrecido { get; set; }
 
-        public String producto_interes { get; set; }
+        public Producto producto_interes { get; set; }
 
         public DateTime fecha { get; set; }
 

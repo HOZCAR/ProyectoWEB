@@ -39,7 +39,11 @@ namespace Proyecto_Oscar_Tonny.Controllers
         // GET: Productoes/Create
         public ActionResult Create()
         {
-            return View();
+            if (User.Identity.IsAuthenticated) 
+            { 
+                return View(); 
+            }
+            return RedirectToAction("AccountController", "Login");
         }
 
         // POST: Productoes/Create

@@ -58,6 +58,11 @@ namespace Proyecto_Oscar_Tonny.Controllers
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
+            /* posible
+             * if (User.Identity.IsAuthenticated) { 
+             return RedirectToAction("ProductoesController", "Create");
+             } 
+             */
             return View();
         }
 

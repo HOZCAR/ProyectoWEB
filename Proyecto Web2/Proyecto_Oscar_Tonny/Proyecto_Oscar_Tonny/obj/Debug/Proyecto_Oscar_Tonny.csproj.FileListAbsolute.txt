@@ -108,3 +108,5 @@ C:\Users\GOLLO\Documents\Visual Studio 2013\Projects\Proyecto_Oscar_Tonny\Proyec
 C:\Users\GOLLO\Documents\Visual Studio 2013\Projects\Proyecto_Oscar_Tonny\Proyecto_Oscar_Tonny\obj\Debug\Proyecto_Oscar_Tonny.csprojResolveAssemblyReference.cache
 C:\Users\GOLLO\Documents\Visual Studio 2013\Projects\Proyecto_Oscar_Tonny\Proyecto_Oscar_Tonny\obj\Debug\Proyecto_Oscar_Tonny.dll
 C:\Users\GOLLO\Documents\Visual Studio 2013\Projects\Proyecto_Oscar_Tonny\Proyecto_Oscar_Tonny\obj\Debug\Proyecto_Oscar_Tonny.pdb
+C:\Users\GOLLO\Documents\Visual Studio 2013\Projects\Proyecto_Oscar_Tonny\Proyecto_Oscar_Tonny\obj\Debug\Proyecto_Oscar_Tonny.Migrations.InitialCreate.resources
+C:\Users\GOLLO\Documents\Visual Studio 2013\Projects\Proyecto_Oscar_Tonny\Proyecto_Oscar_Tonny\obj\Debug\Proyecto_Oscar_Tonny.csproj.GenerateResource.Cache

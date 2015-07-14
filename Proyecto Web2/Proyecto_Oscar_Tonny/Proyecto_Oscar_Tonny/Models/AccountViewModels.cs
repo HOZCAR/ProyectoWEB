@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Proyecto_Oscar_Tonny.Models
@@ -79,6 +80,15 @@ namespace Proyecto_Oscar_Tonny.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        public String Name { get; set; }
+
+        [Required]
+        public int Phone { get; set; }
+
+        [Required]
+        public int Age { get; set; }
     }
 
     public class ResetPasswordViewModel
