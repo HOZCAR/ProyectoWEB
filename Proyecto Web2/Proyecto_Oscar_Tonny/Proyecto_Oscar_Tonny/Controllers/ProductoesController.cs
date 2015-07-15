@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -8,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using Proyecto_Oscar_Tonny;
 using Proyecto_Oscar_Tonny.Models;
+using System.IO;
 
 namespace Proyecto_Oscar_Tonny.Controllers
 {
@@ -39,11 +41,7 @@ namespace Proyecto_Oscar_Tonny.Controllers
         // GET: Productoes/Create
         public ActionResult Create()
         {
-            if (User.Identity.IsAuthenticated) 
-            { 
-                return View(); 
-            }
-            return RedirectToAction("Login", "Account");
+            return View();
         }
 
         // POST: Productoes/Create
@@ -51,17 +49,41 @@ namespace Proyecto_Oscar_Tonny.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,usuario,nombre,Descripcion,foto,fecha_registro")] Producto producto)
+        public ActionResult Create([Bind(Include = "id,nombre,Descripcion,foto,estado,fecha_registro")] Producto producto,HttpPostedFileBase file)
         {
-            producto.fecha_registro = System.DateTime.Today;
-            producto.usuario = User.Identity.Name;
-            producto.estado = "Activo";
-            if (ModelState.IsValid)
+            try
             {
-                db.Productoes.Add(producto);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (file != null)
+                {
+                    if (file.ContentLength > 0)
+                    {
+                        if ((file.ContentType == "image/jpeg") || (file.ContentType == "image/gif") ||
+                            (file.ContentType == "image/png") || (file.ContentType == "image/jpg"))//check allow jpg, gif, png
+                        {
+                            var fileName = Path.GetFileName(file.FileName);
+                            var path = Path.Combine(Server.MapPath("~/Content/Image/"), fileName);
+                            file.SaveAs(path);//save image in folder
+                            producto.foto = file.FileName;
+                        }
+                    }
+                }
+                if (ModelState.IsValid)
+                {
+                    producto.estado = "Activo";
+                    producto.fecha_registro = System.DateTime.Today;
+                    db.Productoes.Add(producto);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                
             }
+            catch
+            {
+                return View(producto);
+            }
+
+            
+            
 
             return View(producto);
         }
@@ -78,12 +100,7 @@ namespace Proyecto_Oscar_Tonny.Controllers
             {
                 return HttpNotFound();
             }
-            if (User.Identity.IsAuthenticated && producto.usuario == User.Identity.Name)
-            {
-                return View(producto);
-            }
-            return RedirectToAction("Login", "Account");
-            
+            return View(producto);
         }
 
         // POST: Productoes/Edit/5
@@ -91,7 +108,7 @@ namespace Proyecto_Oscar_Tonny.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,usuario,nombre,Descripcion,foto,fecha_registro")] Producto producto)
+        public ActionResult Edit([Bind(Include = "id,nombre,Descripcion,foto,estado,fecha_registro")] Producto producto)
         {
             if (ModelState.IsValid)
             {
