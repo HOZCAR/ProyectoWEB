@@ -24,8 +24,6 @@ namespace Proyecto_Oscar_Tonny.Models
         public System.Data.Entity.DbSet<Proyecto_Oscar_Tonny.Producto> Productoes { get; set; }
 
         public System.Data.Entity.DbSet<Proyecto_Oscar_Tonny.transacciones> transacciones { get; set; }
-
-        public System.Data.Entity.DbSet<Proyecto_Oscar_Tonny.Models.File> Files { get; set; }
     
     }
 }

@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Proyecto_Oscar_Tonny;
 using Proyecto_Oscar_Tonny.Models;
+using System.Web.UI.WebControls;
 
 namespace Proyecto_Oscar_Tonny.Controllers
 {
@@ -39,7 +40,31 @@ namespace Proyecto_Oscar_Tonny.Controllers
         // GET: transacciones/Create
         public ActionResult Create()
         {
-            return View();
+            List<Producto> ByOwner = new List<Producto>();
+            List<Producto> All = new List<Producto>();
+            ProductoesController p = new ProductoesController();
+            ByOwner = p.OwnerProducts(User.Identity.Name);
+            All = p.AllProducts(User.Identity.Name);
+
+            if(User.Identity.IsAuthenticated)
+            {
+                DropDownList PorDueño = new DropDownList();
+                DropDownList Todos = new DropDownList();
+                foreach (var item in ByOwner)
+                {
+                    PorDueño.Items.Add(item.nombre);
+                }
+                foreach (var item in All)
+                {
+                    Todos.Items.Add(item.nombre);
+                }
+                ViewBag.ByOwnerList = ByOwner;
+                ViewBag.ProductosAll = All;
+                return View();
+            }
+            
+            
+            return RedirectToAction("Login", "Account");
         }
 
         // POST: transacciones/Create
@@ -47,8 +72,11 @@ namespace Proyecto_Oscar_Tonny.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,producto_interes,fecha")] transacciones transacciones)
+        public ActionResult Create([Bind(Include = "id,producto_ofrecido,producto_interes,estado")] transacciones transacciones)
         {
+            transacciones.estado = "Pendiente";
+            transacciones.fecha = DateTime.Today;
+
             if (ModelState.IsValid)
             {
                 db.transacciones.Add(transacciones);

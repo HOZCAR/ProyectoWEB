@@ -8,12 +8,15 @@ using System.Web;
 using System.Web.Mvc;
 using Proyecto_Oscar_Tonny;
 using Proyecto_Oscar_Tonny.Models;
+using System.IO;
 
 namespace Proyecto_Oscar_Tonny.Controllers
 {
     public class ProductoesController : Controller
     {
         private Proyecto_Oscar_TonnyContext db = new Proyecto_Oscar_TonnyContext();
+        List<Producto> ByOwner = new List<Producto>();
+        List<Producto> All = new List<Producto>();
 
         // GET: Productoes
         public ActionResult Index()
@@ -39,9 +42,9 @@ namespace Proyecto_Oscar_Tonny.Controllers
         // GET: Productoes/Create
         public ActionResult Create()
         {
-            if (User.Identity.IsAuthenticated)
-            {
-                return View();
+            if (User.Identity.IsAuthenticated) 
+            { 
+                return View(); 
             }
             return RedirectToAction("Login", "Account");
         }
@@ -51,22 +54,24 @@ namespace Proyecto_Oscar_Tonny.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,usuario,nombre,Descripcion,fecha_registro")] HttpPostedFileBase fileimg, Producto producto)
+        public ActionResult Create([Bind(Include = "id,usuario,nombre,Descripcion,foto,fecha_registro")] Producto producto, HttpPostedFileBase file)
         {
             try
             {
-                var avatar = new File
+                if (file != null)
                 {
-                    FileName = System.IO.Path.GetFileName(fileimg.FileName),
-                    FileType = FileType.foto,
-                    ContentType = fileimg.ContentType
-                };
-                using (var reader = new System.IO.BinaryReader(fileimg.InputStream))
-                {
-                    avatar.Content = reader.ReadBytes(fileimg.ContentLength);
+                    if (file.ContentLength > 0)
+                    {
+                        if ((file.ContentType == "image/jpeg") || (file.ContentType == "image/gif") ||
+                            (file.ContentType == "image/png") || (file.ContentType == "image/jpg"))//check allow jpg, gif, png
+                        {
+                            var fileName = Path.GetFileName(file.FileName);
+                            var path = Path.Combine(Server.MapPath("~/Content/Image/"), fileName);
+                            file.SaveAs(path);//save image in folder
+                            producto.foto = file.FileName;
+                        }
+                    }
                 }
-                producto.Fotos = new List<File> { avatar };
-
                 if (ModelState.IsValid)
                 {
                     producto.fecha_registro = System.DateTime.Today;
@@ -103,7 +108,7 @@ namespace Proyecto_Oscar_Tonny.Controllers
                 return View(producto);
             }
             return RedirectToAction("Login", "Account");
-
+            
         }
 
         // POST: Productoes/Edit/5
@@ -156,5 +161,44 @@ namespace Proyecto_Oscar_Tonny.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public void ListasProductos(String name)
+        {
+            String person = name;
+            if (person != null)
+            {
+                IEnumerable<Producto> productos = db.Productoes.ToList();
+                this.All = productos.ToList();
+                IEnumerable<Producto> productobyowner = (from p in db.Productoes where p.usuario.Contains(name) select p).ToList();
+                this.ByOwner = productobyowner.ToList();
+                
+            }
+        }
+        public List<Producto> AllProducts(String name)
+        {
+            if(this.All.Count > 0)
+            {
+                return this.All;
+            }
+            else
+            {
+                this.ListasProductos(name);
+            }
+            return this.All;
+        }
+
+        public List<Producto> OwnerProducts(String name)
+        {
+            if (this.All.Count > 0)
+            {
+                return this.ByOwner;
+            }
+            else
+            {
+                this.ListasProductos(name);
+            }
+            return this.ByOwner;
+        }
+        
     }
 }
