@@ -8,7 +8,6 @@ using System.Web;
 using System.Web.Mvc;
 using Proyecto_Oscar_Tonny;
 using Proyecto_Oscar_Tonny.Models;
-using System.IO;
 
 namespace Proyecto_Oscar_Tonny.Controllers
 {
@@ -40,9 +39,9 @@ namespace Proyecto_Oscar_Tonny.Controllers
         // GET: Productoes/Create
         public ActionResult Create()
         {
-            if (User.Identity.IsAuthenticated) 
-            { 
-                return View(); 
+            if (User.Identity.IsAuthenticated)
+            {
+                return View();
             }
             return RedirectToAction("Login", "Account");
         }
@@ -52,24 +51,22 @@ namespace Proyecto_Oscar_Tonny.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,usuario,nombre,Descripcion,foto,fecha_registro")] Producto producto, HttpPostedFileBase file)
+        public ActionResult Create([Bind(Include = "id,usuario,nombre,Descripcion,fecha_registro")] HttpPostedFileBase fileimg, Producto producto)
         {
             try
             {
-                if (file != null)
+                var avatar = new File
                 {
-                    if (file.ContentLength > 0)
-                    {
-                        if ((file.ContentType == "image/jpeg") || (file.ContentType == "image/gif") ||
-                            (file.ContentType == "image/png") || (file.ContentType == "image/jpg"))//check allow jpg, gif, png
-                        {
-                            var fileName = Path.GetFileName(file.FileName);
-                            var path = Path.Combine(Server.MapPath("~/Content/Image/"), fileName);
-                            file.SaveAs(path);//save image in folder
-                            producto.foto = file.FileName;
-                        }
-                    }
+                    FileName = System.IO.Path.GetFileName(fileimg.FileName),
+                    FileType = FileType.foto,
+                    ContentType = fileimg.ContentType
+                };
+                using (var reader = new System.IO.BinaryReader(fileimg.InputStream))
+                {
+                    avatar.Content = reader.ReadBytes(fileimg.ContentLength);
                 }
+                producto.Fotos = new List<File> { avatar };
+
                 if (ModelState.IsValid)
                 {
                     producto.fecha_registro = System.DateTime.Today;
@@ -106,7 +103,7 @@ namespace Proyecto_Oscar_Tonny.Controllers
                 return View(producto);
             }
             return RedirectToAction("Login", "Account");
-            
+
         }
 
         // POST: Productoes/Edit/5

@@ -5,6 +5,7 @@ using System.Web;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using Proyecto_Oscar_Tonny.Models;
 
 namespace Proyecto_Oscar_Tonny
 {
@@ -18,7 +19,7 @@ namespace Proyecto_Oscar_Tonny
 
         public String Descripcion { get; set; }
 
-        public String foto { get; set; }
+        public virtual ICollection<File> Fotos { get; set; }
 
         public String estado { get; set; }
 

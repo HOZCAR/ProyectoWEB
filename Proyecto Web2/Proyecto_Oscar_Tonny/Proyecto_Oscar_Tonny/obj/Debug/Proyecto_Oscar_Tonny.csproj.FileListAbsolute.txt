@@ -167,3 +167,5 @@ C:\Users\Tonny\Documents\GitHub\ProyectoWEB\Proyecto Web2\Proyecto_Oscar_Tonny\P
 C:\Users\Tonny\Documents\GitHub\ProyectoWEB\Proyecto Web2\Proyecto_Oscar_Tonny\Proyecto_Oscar_Tonny\obj\Debug\Proyecto_Oscar_Tonny.csproj.GenerateResource.Cache
 C:\Users\Tonny\Documents\GitHub\ProyectoWEB\Proyecto Web2\Proyecto_Oscar_Tonny\Proyecto_Oscar_Tonny\obj\Debug\Proyecto_Oscar_Tonny.dll
 C:\Users\Tonny\Documents\GitHub\ProyectoWEB\Proyecto Web2\Proyecto_Oscar_Tonny\Proyecto_Oscar_Tonny\obj\Debug\Proyecto_Oscar_Tonny.pdb
+C:\Users\Tonny\Documents\Visual Studio 2013\Projects\Proyecto_Oscar_Tonny\Proyecto_Oscar_Tonny\obj\Debug\Proyecto_Oscar_Tonny.Migrations.InitialCreate.resources
+C:\Users\Tonny\Documents\Visual Studio 2013\Projects\Proyecto_Oscar_Tonny\Proyecto_Oscar_Tonny\obj\Debug\Proyecto_Oscar_Tonny.csproj.GenerateResource.Cache
