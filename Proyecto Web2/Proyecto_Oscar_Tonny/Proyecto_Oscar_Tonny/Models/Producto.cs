@@ -12,7 +12,7 @@ namespace Proyecto_Oscar_Tonny
     {
         public int id { get; set; }
 
-        //public ApplicationUser usuario { get; set; }
+        public String usuario { get; set; }
 
         public String nombre { get; set; }
 
