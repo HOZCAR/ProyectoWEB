@@ -12,7 +12,7 @@ namespace Proyecto_Oscar_Tonny
     {
         public int id { get; set; }
 
-        //public ApplicationUser usuario { get; set; }
+        public String usuario { get; set; }
 
         public String nombre { get; set; }
 
@@ -20,7 +20,7 @@ namespace Proyecto_Oscar_Tonny
 
         public String foto { get; set; }
 
-        public enum estado { Inactivo, Activo, Transacción, Cambiado }
+        public String estado { get; set; }
 
         public DateTime fecha_registro { get; set; }
 

@@ -15,6 +15,6 @@ namespace Proyecto_Oscar_Tonny
 
         public DateTime fecha { get; set; }
 
-        public enum estado { Pendiente, Completado, Cancelado }
+        public String estado { get; set; }
     }
 }

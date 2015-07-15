@@ -43,7 +43,7 @@ namespace Proyecto_Oscar_Tonny.Controllers
             { 
                 return View(); 
             }
-            return RedirectToAction("AccountController", "Login");
+            return RedirectToAction("Login", "Account");
         }
 
         // POST: Productoes/Create
@@ -51,8 +51,11 @@ namespace Proyecto_Oscar_Tonny.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,nombre,Descripcion,foto,fecha_registro")] Producto producto)
+        public ActionResult Create([Bind(Include = "id,usuario,nombre,Descripcion,foto,fecha_registro")] Producto producto)
         {
+            producto.fecha_registro = System.DateTime.Today;
+            producto.usuario = User.Identity.Name;
+            producto.estado = "Activo";
             if (ModelState.IsValid)
             {
                 db.Productoes.Add(producto);
@@ -75,7 +78,12 @@ namespace Proyecto_Oscar_Tonny.Controllers
             {
                 return HttpNotFound();
             }
-            return View(producto);
+            if (User.Identity.IsAuthenticated && producto.usuario == User.Identity.Name)
+            {
+                return View(producto);
+            }
+            return RedirectToAction("Login", "Account");
+            
         }
 
         // POST: Productoes/Edit/5
@@ -83,7 +91,7 @@ namespace Proyecto_Oscar_Tonny.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,nombre,Descripcion,foto,fecha_registro")] Producto producto)
+        public ActionResult Edit([Bind(Include = "id,usuario,nombre,Descripcion,foto,fecha_registro")] Producto producto)
         {
             if (ModelState.IsValid)
             {
